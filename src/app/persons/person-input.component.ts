@@ -10,12 +10,12 @@ import { PersonsService } from './persons.service';
 export class PersonInputComponent {
   enteredPersonName: string = '';
 
-  constructor(private personsService: PersonsService){
+  constructor(private personsService: PersonsService) {
     this.personsService = personsService;
   }
 
   onCreatePerson() {
-    console.log('Create a person: ' + this.enteredPersonName)
+    console.log('Create a person: ' + this.enteredPersonName);
     this.personsService.addPerson(this.enteredPersonName);
     this.enteredPersonName = '';
   }
