@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 
 export class PersonsComponent implements OnInit, OnDestroy {
   personList: string[];
+  isLoading: boolean = false;
   private personListSubscription: Subscription;
 
   // defining a property with a type like below will add that property to this type
@@ -19,7 +20,9 @@ export class PersonsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.personListSubscription = this.personsService.personsChanged.subscribe(persons => {
       this.personList = persons;
+      this.isLoading = false;
     });
+    this.isLoading = true;
     this.personsService.fetchPersons();
   }
 

@@ -1,4 +1,5 @@
-<ul>
+<p *ngIf="isLoading">Spinning up the engines..</p>
+<ul *ngIf="!isLoading">
   <li *ngFor="let person of personList" (click)="onRemovePerson(person)">
     {{person}}
   </li>
